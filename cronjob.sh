@@ -1,11 +1,8 @@
 #!/bin/bash
 
-# Ruta al script de Python
-SCRIPT_PYTHON= $(readlink -f "script.py")
-LOG_FILE=$(readlink -f "updates.log")
-
 # Comando a ejecutar
-COMANDO="/usr/bin/python3 $SCRIPT_PYTHON >> $LOG_FILE 2>&1"
+COMANDO="/usr/bin/python3 $(readlink -f "script.py") >> $(readlink -f "updates.log") 2>&1"
+echo $COMANDO
 
 # Agregar el cron job
 (crontab -l 2>/dev/null; echo "*/10 * * * * $COMANDO") | crontab -
