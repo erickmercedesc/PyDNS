@@ -4,9 +4,6 @@
 SCRIPT_PYTHON= $(readlink -f "script.py")
 LOG_FILE=$(readlink -f "updates.log")
 
-# Dar permisos de ejecución al script de Python
-chmod +x $SCRIPT_PYTHON
-
 # Comando a ejecutar
 COMANDO="/usr/bin/python3 $SCRIPT_PYTHON >> $LOG_FILE 2>&1"
 
