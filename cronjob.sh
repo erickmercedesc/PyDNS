@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Ruta al script de Python
+SCRIPT_PYTHON="~/script.py"
+LOG_FILE="~/updates.log"
+
+# Dar permisos de ejecución al script de Python
+chmod +x $SCRIPT_PYTHON
+
+# Comando a ejecutar
+COMANDO="/usr/bin/python3 $SCRIPT_PYTHON >> $LOG_FILE 2>&1"
+
+# Agregar el cron job
+(crontab -l 2>/dev/null; echo "*/10 * * * * $COMANDO") | crontab -
+
+echo "Cron job añadido para ejecutar el script cada 10 minutos."
