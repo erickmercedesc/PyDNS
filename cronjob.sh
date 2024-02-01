@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Ruta al script de Python
-SCRIPT_PYTHON= $(readlink, -f "script.py")
-LOG_FILE=$(readlink, -f "updates.log")
+SCRIPT_PYTHON= $(readlink -f "script.py")
+LOG_FILE=$(readlink -f "updates.log")
 
 # Dar permisos de ejecución al script de Python
 chmod +x $SCRIPT_PYTHON
